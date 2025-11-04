@@ -722,7 +722,9 @@ h2, h3 {
   border-radius: 10px; /* Optional: To add rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add some shadow effect */
   transition: transform 0.3s ease-in-out; /* Optional: To add a zoom effect on hover */
+  margin-top: 500px; /* Add a top margin of 500px */
 }
+
 
 .blogfooter {
   width: 200px; /* Set the width of the square */
