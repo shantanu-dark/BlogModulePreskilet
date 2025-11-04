@@ -264,8 +264,8 @@ img {
 
 /* Footer */
 .footer {
-  margin-top: 300px; /* Adjust this value to move the content down */
-  padding-top: 300px; /* Adds space inside the footer container */
+  margin-top: 80px; /* Adjust this value to move the content down */
+  padding-top: 80px; /* Adds space inside the footer container */
   margin: 0.5rem;
   text-align: center;
   background-color: #f9f9f9;
@@ -727,12 +727,12 @@ h2, h3 {
 
 
 .blogfooter {
-  width: 200px; /* Set the width of the square */
-  height: 200px; /* Set the height of the square */
-  background-image: url('public/img/blogfooter.jpg'); /* Set the background image */
+  margin-top: 130px;
+  width: 300px;      /* Slightly smaller for a profile area */
+  height: 300px;
   background-size: cover; /* Ensure the image covers the whole area */
-  background-position: center; /* Center the image within the square */
+  background-size: 100%;
+  background-position: center;
   background-repeat: no-repeat; /* Prevent repeating the image */
-  display: block; /* Ensure it behaves like a block element */
   border-radius: 8px; /* Optional: adds rounded corners */
 }
