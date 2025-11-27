@@ -1,6 +1,14 @@
-<h1>Hello welcome to my blog</h1>
+<div class="tabs-container">
+  <div class="tabs">
+    <button href="/views/blogs.ejs"class="tab active" data-tab="Blogs">Blogs</button>
+    <button class="tab" data-tab="Search Blogs">Search Blogs</button>
+    <button class="tab" data-tab="Trending">Trending</button>
+  </div>
+</div>
+<!-- Tab Content Sections -->
+<div class="tab-content" id="Blogs">
   <ul class="article-ul">
-        <% data.forEach(post => { %>       
+        <% blogs.forEach(post => { %>       
         <li>
             <a href="/post/<%= post._id %>">
                 <span><%= post.title %></span>
@@ -9,9 +17,41 @@
         </li>
         <% }) %>        
     </ul>
+</div>
 
-    <% if (nextPage !== null) { %>
-        <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
-        <% } %>
-    
-</section>
+
+<div class="tab-content hidden" id="Search Blogs">
+  <h2>Search Blogs</h2>
+    <div class="search-bar">
+      <form action="/search" method="POST">
+  <input type="text" name="searchTerm" placeholder="Search...">
+  <button type="submit" class="search-btn" title="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="11" cy="11" r="8"/>
+  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+</svg>
+      </button>
+</form>
+</div>
+
+
+<div class="tab-content hidden" id="Trending">
+  <h2>This is Trending Page</h2>
+  <img src="/public/img/Trend123.png" class="trending_img" alt="Trending Image">
+</div>
+</section>   
+
+
+<script>
+  const tabs = document.querySelectorAll(".tab");
+  const contents = document.querySelectorAll(".tab-content");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      contents.forEach(c => c.classList.add("hidden"));
+      tab.classList.add("active");
+      document.getElementById(tab.dataset.tab).classList.remove("hidden");
+    });
+  });
+</script>

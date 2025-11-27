@@ -1,45 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post')
+const User = require('../models/user');
 
 
-// Routes
-router.get('', async (req, res) => {
 
-    try {
-        const locals = {
-             title: "NodeJs Blog",
-             description: "Simple Bloag created with NodeJs, Express & MongoDB."
-            }
-        
-        let perPage = 5;
-        let page = req.query.page || 1;
-
-        const data = await Post.aggregate([{ $sort: {  createdAt: -1 }}])
-        .skip(perPage * page - perPage)
-        .limit(perPage)
-        .exec();
-
-        const count = await Post.count;
-        const nextPage = parseInt(page) + 1;
-        const hasNextPage = nextPage <= Math.ceil(count / perPage);
-                
-        
-        res.render('index', { 
-            locals, 
-            data,
-            current: page,
-            nextPage: hasNextPage ? nextPage : null
-        });
-        
-    } catch (error) {
-        console.log(error);
-    }
-
-    
+const auth = require("../../middleware/auth");
+router.get("/blogs", auth, async (req, res) => {
+    const blogs = await Post.find();
+    res.render("blogs", { blogs });
 });
 
-
+router.get("/signout", (req, res) => {
+    res.clearCookie("token");  // remove JWT cookie
+    res.redirect("/");         // redirect to home page
+});
 
 // GET post _id:
 router.get('/post/:id', async (req, res)=> {
@@ -133,6 +108,25 @@ router.post('/add-post',async (req,res) =>{
 
 router.get('/about',(req, res) => {
     res.render('about');
+});
+
+
+router.get("/edit-profile", auth, (req, res) => {
+    res.render("edit-profile", { user: req.user });
+});
+
+
+router.post("/edit-profile", auth, async (req, res) => {
+    const { firstName, middleName, surname, profilePhoto } = req.body;
+
+    await User.findByIdAndUpdate(req.user._id, {
+        firstName,
+        middleName,
+        surname,
+        profilePhoto
+    });
+
+    res.redirect("/blogs"); 
 });
 
 

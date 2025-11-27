@@ -5,6 +5,7 @@
   </a>
 
 
+   <% if (user) { %>
    <div class="header__button">
     <button class="dots-button" aria-expanded="false">
       <svg width="5" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -14,6 +15,7 @@
       </svg>
     </button>
     <!-- Dropdown Menu -->
+    
     <div class="dropdown-menu">
       <ul>
         <li><a href="/feedback">Feedback</a></li>
@@ -22,5 +24,6 @@
       </ul>
     </div>
   </div>
+  <% } %>
   
 </header>

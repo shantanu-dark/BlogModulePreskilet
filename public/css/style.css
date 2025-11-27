@@ -583,45 +583,79 @@ h2, h3 {
   color: #333; /* Set a dark color for the titles */
 }
 
-.profile-container {
-  margin-top: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f5f5f5;
-  padding: 40px 0;
-}
-
 .profile-card {
-  background: #fff;
-  width: 380px;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  padding: 20px;
-  font-family: 'Poppins', sans-serif;
+    width: 250px;
+    top: 140px;
+    background: #fff;
+    padding: 25px;
+    margin: auto;
+    border-radius: 15px;
+    text-align: center;              /* centers everything */
+    box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+    position: relative;
 }
 
-.profile-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
+/* Profile Photo */
+.profile-photo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
 }
 
-.profile-avatar img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #ccc;
-  margin-right: 15px;
-  object-fit: cover;
+.profile-photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;              /* makes it round */
+    object-fit: cover;
+    border: 3px solid #eaeaea;
 }
 
-.profile-details h3 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
+/* Name */
+.profile-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+/* College Name */
+.profile-college {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+/* Premium Text */
+.premium-status {
+    color: #28a745;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Divider Line */
+.divider {
+    margin: 15px 0;
+    border: 0;
+    height: 1px;
+    background: #ddd;
+}
+
+/* Stats Section */
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-stats div h3 {
+    font-size: 22px;
+    margin: 0;
+    color: #222;
+}
+
+.profile-stats div p {
+    font-size: 13px;
+    margin-top: 4px;
+    color: #666;
 }
 
 .college-name {
@@ -668,15 +702,16 @@ h2, h3 {
 
 .create-blog-btn {
   display: inline-block;
-  margin-top: 100px;
-  padding-left: 10px;
+  justify-content: center;
+  margin-top: 150px;
+  padding-left: 50px;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 16px;
   color: #333;
   text-decoration: none;
   border: 2px solid #333;
-  padding: 10px 20px;
+  padding: 10px 90px;
   border-radius: 0px;
   transition: all 0.3s ease;
   position: relative;
@@ -736,3 +771,195 @@ h2, h3 {
   background-repeat: no-repeat; /* Prevent repeating the image */
   border-radius: 8px; /* Optional: adds rounded corners */
 }
+
+
+
+.edit-profile-btn {
+    display: inline-block;
+  justify-content: center;
+  margin-top: 10px;
+  padding-left: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  border: 2px solid #333;
+  padding: 10px 50px;
+  border-radius: 0px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.edit-profile-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #333;
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.edit-profile-btn:hover::before {
+  left: 0;
+}
+
+.edit-profile-btn:hover {
+  color: #fff;
+  border-color: #333;
+  transform: translateY(-2px);
+}
+
+.edit-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0px 3px 10px rgba(0, 123, 255, 0.2);
+}
+
+
+/* LANDING PAGE SEPARATE CSS */
+
+/* Outer Container */
+.preskilet-login-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 40px auto 0 auto;
+    padding: 0 40px;
+}
+
+/* Left Side - Glassmorphic Welcome Box */
+.preskilet-welcome-box {
+    width: 55%;
+    padding: 40px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+    animation: fadeInLeft 1s ease;
+}
+
+.preskilet-typewriter {
+    overflow: hidden;
+    border-right: 3px solid #444;
+    white-space: nowrap;
+    width: 0;
+    margin-left: 40px;        /* center visually */
+    font-size: 42px;
+    font-weight: 800;
+    animation: typing 3.2s steps(40) forwards, blink 0.7s infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 700px; }   /* Adjust based on text length */
+}
+
+@keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #444; }
+}
+
+
+.preskilet-description {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* Right Side Login Box */
+.preskilet-login-box {
+    width: 45%;
+    padding: 45px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.15);
+    animation: fadeInRight 1s ease;
+}
+
+.preskilet-login-box input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0 22px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.preskilet-login-btn {
+    width: 100%;
+    background: #1b1b1b;
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.preskilet-login-btn:hover {
+    background: #333;
+}
+
+/* Register link */
+.preskilet-register-text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.preskilet-register-text a {
+    color: #007bff;
+    font-weight: 600;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .preskilet-login-container {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .preskilet-welcome-box,
+    .preskilet-login-box {
+        width: 100%;
+    }
+}
+
+/* Comments below */
+
+
+
+
+
+

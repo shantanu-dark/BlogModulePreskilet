@@ -1,0 +1,106 @@
+<div class="wrap">
+    <div class="card" role="main">
+      <div class="top">
+        <h1>Create Your Account</h1>
+        <p class="lead">Fill the form to register</p>
+      </div>
+
+      <div class="section-title">Personal Information</div>
+
+      <!-- IMPORTANT: point the form action to your backend route -->
+      <form id="signinForm" action="/register" method="POST">
+        <div class="form-grid">
+
+          <div>
+            <label for="profilePhoto">Profile Photo URL</label>
+            <input 
+            id="profilePhoto" 
+            name="profilePhoto" 
+            type="text"
+            placeholder="Paste link to your profile photo">
+          </div>
+
+
+          <div>
+            <label for="first">First Name</label>
+            <input id="first" name="firstName" type="text" placeholder="Enter first name">
+          </div>
+
+          <div>
+            <label for="middle">Middle Name</label>
+            <input id="middle" name="middleName" type="text" placeholder="Enter middle name">
+          </div>
+
+          <div>
+            <label for="surname">Surname</label>
+            <input id="surname" name="surname" type="text" placeholder="Enter surname">
+          </div>
+
+          <div class="row-2">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Enter your email">
+            </div>
+            <div>
+  <label for="college">College Name</label>
+
+  <select id="college" name="college" onchange="toggleOtherCollegeInput()" required>
+      <option value="">-- Select College --</option>
+      <option value="DY Patil College of Engineering">DY Patil College of Engineering</option>
+      <option value="MIT College of Engineering">MIT College of Engineering</option>
+      <option value="VIT Pune">VIT Pune</option>
+      <option value="AISSMS College of Engineering">AISSMS College of Engineering</option>
+      <option value="COEP Technological University">COEP Technological University</option>
+      <option value="Sinhgad College of Engineering">Sinhgad College of Engineering</option>
+      <option value="Bharti Vidyapeeth College of Engineering">Bharati Vidyapeeth COE</option>
+
+      <!-- Add more colleges as you want -->
+
+      <option value="other">Other (Write manually)</option>
+  </select>
+</div>
+
+<!-- Hidden input: shows only when "Other" is selected -->
+<div id="otherCollegeContainer" style="display:none; margin-top:10px;">
+  <label for="otherCollege">Enter College Name</label>
+  <input type="text" id="otherCollege" name="otherCollege" placeholder="Enter your college name">
+</div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" placeholder="Enter phone number">
+            </div>
+          </div>
+
+          <div id="username-container">
+            <label for="username">User Name</label>
+            <input id="username" name="username" type="text" placeholder="Enter username">
+          </div>
+
+          <div id="password-container">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Enter your password">
+          </div>
+
+          <div class="actions">
+            <button class="btn" type="submit">Register</button>
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+  function toggleOtherCollegeInput() {
+      const collegeSelect = document.getElementById('college');
+      const otherInputContainer = document.getElementById('otherCollegeContainer');
+
+      if (collegeSelect.value === 'other') {
+          otherInputContainer.style.display = 'block';
+      } else {
+          otherInputContainer.style.display = 'none';
+          document.getElementById('otherCollege').value = ""; // Clear text when hidden
+      }
+  }
+</script>

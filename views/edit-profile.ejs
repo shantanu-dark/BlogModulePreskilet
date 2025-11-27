@@ -1,0 +1,19 @@
+<a href="/blogs">&larr; Back</a>
+<h2>Edit Profile</h2>
+
+<form action="/edit-profile" method="POST">
+
+  <label>Profile Photo URL</label>
+  <input type="text" name="profilePhoto" value="<%= user.profilePhoto %>">
+
+  <label>First Name</label>
+  <input type="text" name="firstName" value="<%= user.firstName %>">
+
+  <label>Middle Name</label>
+  <input type="text" name="middleName" value="<%= user.middleName %>">
+
+  <label>Surname</label>
+  <input type="text" name="surname" value="<%= user.surname %>">
+
+  <button type="submit">Save Changes</button>
+</form>

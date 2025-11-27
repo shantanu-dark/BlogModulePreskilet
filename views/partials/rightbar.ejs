@@ -1,31 +1,37 @@
-<div class="profile-container">
-  <div class="profile-card">
-    <div class="profile-header">
-      <div class="profile-avatar">
-        <a href="/" class="header__logo">
-    <img src="/img/Profile.png" class="header__logo-img" alt="PreskiletBlog">
-  </a>
-      </div>
-      <div class="profile-details">
-        <h3>Preskilet</h3>
-        <p class="college-name">College Name</p>
-        <p class="premium-status">
-          <span>👑</span> Premium Account
-        </p>
-      </div>
+<div class="profile-card">
+
+    <!-- Profile Photo -->
+    <div class="profile-photo-container">
+        <img src="<%= user.profilePhoto %>" alt="Profile Photo" class="profile-photo">
     </div>
 
-    <div class="profile-stats">
-      <div class="stat">
-        <p class="stat-value">12</p>
-        <p class="stat-label">No. of Blogs</p>
-      </div>
-      <div class="stat">
-        <p class="stat-value">4</p>
-        <p class="stat-label">Blogs Gone Trending</p>
-      </div>
-    </div>
-  </div>
+    <!-- Full Name -->
+    <h2 class="profile-name">
+        <%= user.firstName %>
+        <% if (user.middleName) { %>
+            <%= " " + user.middleName %>
+        <% } %>
+        <%= " " + user.surname %>
+    </h2>
+
+    <!-- College Name -->
+    <p class="profile-college">
+        <% if (user.college === "other" && user.otherCollege) { %>
+            <%= user.otherCollege %>
+        <% } else { %>
+            <%= user.college %>
+        <% } %>
+    </p>
+
+    <!-- Premium text (Optional) -->
+    <p class="premium-status">
+        <span>👑</span> Premium Account
+    </p>
+
+    <hr class="divider">
+
+    <a href="/edit-profile" class="edit-profile-btn">Edit Profile</a>
+
+
+
 </div>
-
-
